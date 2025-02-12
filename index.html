@@ -3,115 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dla Amelci ❤️</title>
+    <title>Wszystkiego Najlepszego Mamo!</title>
     <style>
         body {
-            background: linear-gradient(to right, #ff758c, #ff7eb3);
-            color: white;
             font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
             text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
             padding: 20px;
-            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         h1 {
-            font-size: 2.5em;
-            margin-top: 20px;
+            color: #ff4b5c;
         }
-        .message {
-            font-size: 1.5em;
-            margin-top: 20px;
-        }
-        .hearts {
-            position: fixed;
-            top: 0;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
+        p {
+            font-size: 18px;
+            color: #333;
         }
         .heart {
-            position: absolute;
-            bottom: -10px;
-            background-color: rgba(255, 255, 255, 0.8);
-            width: 20px;
-            height: 20px;
-            clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 80%, 20% 100%, 0% 35%);
-            animation: float 5s infinite ease-in-out;
+            font-size: 50px;
+            color: red;
+            animation: pulse 1.5s infinite;
         }
-        @keyframes float {
-            0% { transform: translateY(0) scale(1); opacity: 1; }
-            100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
         }
-        .button-container {
-            margin-top: 30px;
-        }
-        .btn {
-            font-size: 1.2em;
+        .button {
+            display: inline-block;
+            margin-top: 20px;
             padding: 10px 20px;
-            margin: 10px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-        .yes {
-            background-color: #ff4081;
+            background: #ff4b5c;
             color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
         }
-        .no {
-            background-color: #ffffff;
-            color: #ff4081;
+        .button:hover {
+            background: #e63e4e;
         }
-        #loveMessage {
-            display: none;
-            font-size: 1.8em;
+        .footer {
             margin-top: 20px;
-            color: yellow;
-        }
-        #videoContainer {
-            display: none;
-            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
         }
     </style>
 </head>
 <body>
-    <h1>Kocham Cię ❤️</h1>
-    <p class="message">Chuj dupa, cipa, cycki i chuj wie co</p>
-    <div class="hearts"></div>
-    <div class="button-container">
-        <p>Czy zostaniesz moją Walentynką?</p>
-        <button class="btn yes" id="yesButton">Tak</button>
-        <button class="btn no" onclick="moveButton(this)">Nie</button>
+    <div class="container">
+        <h1>Wszystkiego Najlepszego, Mamo!</h1>
+        <p>Z całego serca dziękuję ci za wszystko, co dla mnie robisz.</p>
+        <p>Jesteś najlepszą mamą na świecie! Kocham Cię! ❤️</p>
+        <div class="heart">💖💖💖</div>
+        <button class="button" onclick="alert('Kocham Cię, Mamo! 💕')">Kliknij, aby zobaczyć niespodziankę!</button>
+        <div class="footer">Kubuś 💕</div>
     </div>
-    <p id="loveMessage">Wiedziałem!(Wcale już nie pytałem) ❤️ Kocham Cię!</p>
-    <div id="videoContainer">
-        <iframe width="260" height="315" src="https://www.youtube.com/embed/tpZlLXdyYeU?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-
-    <audio id="backgroundMusic" loop>
-        <source src="rosman.mp3" type="audio/mpeg">
-    </audio>
-
-    <script>
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            document.querySelector('.hearts').appendChild(heart);
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
-            setTimeout(() => heart.remove(), 5000);
-        }
-        setInterval(createHeart, 500);
-
-        function moveButton(button) {
-            button.style.position = 'absolute';
-            button.style.left = Math.random() * (window.innerWidth - 100) + 'px';
-            button.style.top = Math.random() * (window.innerHeight - 50) + 'px';
-        }
-        
-        document.getElementById("yesButton").addEventListener("click", function() {
-            document.getElementById("loveMessage").style.display = "block";
-            document.getElementById("videoContainer").style.display = "block";
-        });
-    </script>
 </body>
 </html>
